@@ -9,7 +9,6 @@ jobs:
                 name: Install dependencies
                 command: |
                     yarn
-                name: Run unit_tests
                 command: |
                     ./node_modules/jest/bin/jest dist/test
             -store_test_results:

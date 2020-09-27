@@ -4,7 +4,7 @@ jobs:
         docker:
             -image: circleci/node:12
         steps:
-            -checkout:
+            -clone:
             -run:
                 name: Install dependencies
                 command: |

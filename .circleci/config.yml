@@ -8,9 +8,7 @@ jobs:
             -run:
                 name: Install dependencies
                 command: |
-                    yarn
-                command: |
-                    ./node_modules/jest/bin/jest dist/test
+                    yarn ./node_modules/jest/bin/jest dist/test
             -store_test_results:
                 path: test_results
             -store_test_artifacts:

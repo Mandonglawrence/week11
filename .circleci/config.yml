@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+    run_tests:
+        docker:
+            -image: circleci/node:12
+        steps:
+            -checkout:
+            -run:
+                name: Install dependencies
+                command: |
+                    yarn
+            -run:
+                name: Run unit tests
+                command: |
+                    ./node_modules/jest/bin/jest dist/test
+            -store_test_results:
+                path: test_results
+            -store_test_artifacts:
+                path: test_results
+workflows:
+    build_test:
+        jobs:
+            - run_tests

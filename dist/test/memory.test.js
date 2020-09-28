@@ -105,21 +105,15 @@ var clearDatabase = function () { return __awaiter(void 0, void 0, void 0, funct
         }
     });
 }); };
-beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    return [2 /*return*/, connect()];
-}); }); });
+beforeAll(function () { return connect(); });
 /**
  * Clear all test data after every test.
  */
-afterEach(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    return [2 /*return*/, clearDatabase()];
-}); }); });
+afterEach(function () { return clearDatabase(); });
 /**
  * Remove and close the db and server.
  */
-afterAll(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    return [2 /*return*/, closeDatabase()];
-}); }); });
+afterAll(function () { return closeDatabase(); });
 describe("POST  ", function () {
     /**
      * Tests that you can post to db.
@@ -135,131 +129,108 @@ describe("POST  ", function () {
         noOfEmployees: 0,
     };
     data["noOfEmployees"] = data.employees.length;
-    it("can be created correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, organizationSchema_1.default.create()];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            }); }); }).not.toThrow();
-            return [2 /*return*/];
-        });
-    }); });
+    it("can be created correctly", function () {
+        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, organizationSchema_1.default.create()];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        }); }); }).not.toThrow();
+    });
 });
 describe("filter by ID", function () {
     /**
      * Tests that you can find by id
      */
-    it("can be get correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, organizationSchema_1.default.findById("5f5575724c08c2f6ede2c5eb")];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            }); }); }).not.toThrow();
-            return [2 /*return*/];
-        });
-    }); });
+    it("can be get correctly", function () {
+        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, organizationSchema_1.default.findById("5f5575724c08c2f6ede2c5eb")];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        }); }); }).not.toThrow();
+    });
 });
 describe("delete by ID", function () {
     /**
      * Tests deleting from db
      */
-    it("can be delete correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, organizationSchema_1.default.findByIdAndRemove()];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            }); }); }).not.toThrow();
-            return [2 /*return*/];
-        });
-    }); });
+    it("can be delete correctly", function () {
+        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, organizationSchema_1.default.findByIdAndRemove()];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        }); }); }).not.toThrow();
+    });
 });
 describe("Update by ID", function () {
     /**
      * Tests updating from db
      */
-    it("can be updates correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, organizationSchema_1.default.findByIdAndUpdate()];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            }); }); }).not.toThrow();
-            return [2 /*return*/];
-        });
-    }); });
+    it("can be updates correctly", function () {
+        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, organizationSchema_1.default.findByIdAndUpdate()];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        }); }); }).not.toThrow();
+    });
 });
 describe("filter by organization name ", function () {
     /**
      * Tests updating from db
      */
-    it("can be filtered by organization name correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var data;
-        return __generator(this, function (_a) {
-            data = {
-                products: ["Mango", "Cashew"],
-                employees: ["Uche", "Bulus", "Joseph"],
-                noOfEmployees: 2,
-                organization: "Rggfj",
-                address: "US",
-                country: "Nigeria",
-                marketValue: 90,
-            };
-            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, organizationSchema_1.default.find({ organization: data.organization })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            }); }); }).not.toThrow();
-            return [2 /*return*/];
-        });
-    }); });
+    it("can be filtered by organization name correctly", function () {
+        var data = {
+            products: ["Mango", "Cashew"],
+            employees: ["Uche", "Bulus", "Joseph"],
+            noOfEmployees: 2,
+            organization: "Rggfj",
+            address: "US",
+            country: "Nigeria",
+            marketValue: 90,
+        };
+        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, organizationSchema_1.default.find({ organization: data.organization })];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        }); }); }).not.toThrow();
+    });
 });
 describe("filter by market value", function () {
     /**
      * Tests updating from db
      */
-    it("can be filter by market value correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var data;
-        return __generator(this, function (_a) {
-            data = {
-                products: ["Mango", "Cashew"],
-                employees: ["Uche", "Bulus", "Joseph"],
-                noOfEmployees: 2,
-                organization: "Rggfj",
-                address: "US",
-                country: "Nigeria",
-                marketValue: 90,
-            };
-            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, organizationSchema_1.default.find({ marketValue: data.marketValue })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            }); }); }).not.toThrow();
-            return [2 /*return*/];
-        });
-    }); });
+    it("can be filter by market value correctly", function () {
+        var data = {
+            products: ["Mango", "Cashew"],
+            employees: ["Uche", "Bulus", "Joseph"],
+            noOfEmployees: 2,
+            organization: "Rggfj",
+            address: "US",
+            country: "Nigeria",
+            marketValue: 90,
+        };
+        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, organizationSchema_1.default.find({ marketValue: data.marketValue })];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        }); }); }).not.toThrow();
+    });
 });
 describe("Can get all from database", function () {
     /**
      * Tests updating from db
      */
-    it("can get all correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, organizationSchema_1.default.find()];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            }); }); }).not.toThrow();
-            return [2 /*return*/];
-        });
-    }); });
+    it("can get all correctly", function () {
+        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, organizationSchema_1.default.find()];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        }); }); }).not.toThrow();
+    });
 });

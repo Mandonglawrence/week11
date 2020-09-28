@@ -40,18 +40,18 @@ const RootQuery = new GraphQLObjectType({
     getOneOrganization: {
       type: OrganizationType,
       args: { id: { type: GraphQLID } },
-      resolve(_, args) {
-        return OrganizationModel.findById(args.id);
+     async resolve(_, args) {
+        return await OrganizationModel.findById(args.id);
       },
     },
     // GET ALL ORGANIZATION
     getAllOrganization: {
       type: new GraphQLList(OrganizationType),
       args: {},
-      resolve(_, _args, req) {
+      async resolve(_, _args, req) {
         req.status = 200;
         console.log(req.status)
-        return OrganizationModel.find();
+        return await OrganizationModel.find();
       },
     },
   },

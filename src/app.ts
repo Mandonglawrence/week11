@@ -18,7 +18,7 @@ async function connectToCluster(){
     if (!err) {
       console.log("mongodb connected successfully")
     }
-    mongoose.connection.close();
+    // mongoose.connection.close();
   }
   )
 

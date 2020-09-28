@@ -42,6 +42,9 @@ jobs:
             sudo apt install mongodb-org
             mongo localhost --eval 'db.serverStatus()'
       - run:
+          name: tsc
+          command: yarn tsc      
+      - run:
           name: Test
           command: yarn test
       - run:

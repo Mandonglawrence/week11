@@ -129,108 +129,112 @@ describe("POST  ", function () {
         noOfEmployees: 0,
     };
     data["noOfEmployees"] = data.employees.length;
-    it("can be created correctly", function () {
-        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    it("can be created correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, organizationSchema_1.default.create()];
+                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.create(); }).not.toThrow()];
                 case 1: return [2 /*return*/, _a.sent()];
             }
-        }); }); }).not.toThrow();
-    });
+        });
+    }); });
 });
 describe("filter by ID", function () {
     /**
      * Tests that you can find by id
      */
-    it("can be get correctly", function () {
-        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    it("can be get correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, organizationSchema_1.default.findById("5f5575724c08c2f6ede2c5eb")];
+                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.findById("5f5575724c08c2f6ede2c5eb"); }).not.toThrow()];
                 case 1: return [2 /*return*/, _a.sent()];
             }
-        }); }); }).not.toThrow();
-    });
+        });
+    }); });
 });
 describe("delete by ID", function () {
     /**
      * Tests deleting from db
      */
-    it("can be delete correctly", function () {
-        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    it("can be delete correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, organizationSchema_1.default.findByIdAndRemove()];
+                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.findByIdAndRemove(); }).not.toThrow()];
                 case 1: return [2 /*return*/, _a.sent()];
             }
-        }); }); }).not.toThrow();
-    });
+        });
+    }); });
 });
 describe("Update by ID", function () {
     /**
      * Tests updating from db
      */
-    it("can be updates correctly", function () {
-        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    it("can be updates correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, organizationSchema_1.default.findByIdAndUpdate()];
+                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.findByIdAndUpdate(); }).not.toThrow()];
                 case 1: return [2 /*return*/, _a.sent()];
             }
-        }); }); }).not.toThrow();
-    });
+        });
+    }); });
 });
 describe("filter by organization name ", function () {
     /**
      * Tests updating from db
      */
-    it("can be filtered by organization name correctly", function () {
-        var data = {
-            products: ["Mango", "Cashew"],
-            employees: ["Uche", "Bulus", "Joseph"],
-            noOfEmployees: 2,
-            organization: "Rggfj",
-            address: "US",
-            country: "Nigeria",
-            marketValue: 90,
-        };
-        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    it("can be filtered by organization name correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, organizationSchema_1.default.find({ organization: data.organization })];
+                case 0:
+                    data = {
+                        products: ["Mango", "Cashew"],
+                        employees: ["Uche", "Bulus", "Joseph"],
+                        noOfEmployees: 2,
+                        organization: "Rggfj",
+                        address: "US",
+                        country: "Nigeria",
+                        marketValue: 90,
+                    };
+                    return [4 /*yield*/, expect(function () { return organizationSchema_1.default.find({ organization: data.organization }); }).not.toThrow()];
                 case 1: return [2 /*return*/, _a.sent()];
             }
-        }); }); }).not.toThrow();
-    });
+        });
+    }); });
 });
 describe("filter by market value", function () {
     /**
      * Tests updating from db
      */
-    it("can be filter by market value correctly", function () {
-        var data = {
-            products: ["Mango", "Cashew"],
-            employees: ["Uche", "Bulus", "Joseph"],
-            noOfEmployees: 2,
-            organization: "Rggfj",
-            address: "US",
-            country: "Nigeria",
-            marketValue: 90,
-        };
-        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    it("can be filter by market value correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, organizationSchema_1.default.find({ marketValue: data.marketValue })];
+                case 0:
+                    data = {
+                        products: ["Mango", "Cashew"],
+                        employees: ["Uche", "Bulus", "Joseph"],
+                        noOfEmployees: 2,
+                        organization: "Rggfj",
+                        address: "US",
+                        country: "Nigeria",
+                        marketValue: 90,
+                    };
+                    return [4 /*yield*/, expect(function () { return organizationSchema_1.default.find({ marketValue: data.marketValue }); }).not.toThrow()];
                 case 1: return [2 /*return*/, _a.sent()];
             }
-        }); }); }).not.toThrow();
-    });
+        });
+    }); });
 });
 describe("Can get all from database", function () {
     /**
      * Tests updating from db
      */
-    it("can get all correctly", function () {
-        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    it("can get all correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, organizationSchema_1.default.find()];
+                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.find(); }).not.toThrow()];
                 case 1: return [2 /*return*/, _a.sent()];
             }
-        }); }); }).not.toThrow();
-    });
+        });
+    }); });
 });

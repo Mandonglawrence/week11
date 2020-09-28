@@ -29,6 +29,6 @@ app.use("/graphql",
   graphiql: true
     }
   ));
-app.listen(5001, () => console.log("app running on port 5005"));
+// app.listen(5001, () => console.log("app running on port 5005"));
 // mongoose.connection.close();
 export default app;

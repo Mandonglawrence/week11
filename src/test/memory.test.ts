@@ -61,7 +61,7 @@ describe("POST  ", () => {
   };
   data["noOfEmployees"] = data.employees.length;
   it("can be created correctly", async () => {
-    expect(async () => await Organization.create()).not.toThrow();
+    expect(await Organization.create()).not.toThrow();
   });
 });
 
@@ -70,8 +70,7 @@ describe("filter by ID", () => {
    * Tests that you can find by id
    */
   it("can be get correctly", async () => {
-    expect(
-      async () => await Organization.findById("5f5575724c08c2f6ede2c5eb")
+    expect(await Organization.findById("5f5575724c08c2f6ede2c5eb")
     ).not.toThrow();
   });
 });
@@ -80,7 +79,7 @@ describe("delete by ID", () => {
    * Tests deleting from db
    */
   it("can be delete correctly", async () => {
-    expect(async () => await Organization.findByIdAndRemove()).not.toThrow();
+    expect(await Organization.findByIdAndRemove()).not.toThrow();
   });
 });
 describe("Update by ID", () => {
@@ -88,7 +87,7 @@ describe("Update by ID", () => {
    * Tests updating from db
    */
   it("can be updates correctly", async () => {
-    expect(async () => await Organization.findByIdAndUpdate()).not.toThrow();
+    expect(await Organization.findByIdAndUpdate()).not.toThrow();
   });
 });
 describe("filter by organization name ", () => {
@@ -105,8 +104,7 @@ describe("filter by organization name ", () => {
       country: "Nigeria",
       marketValue: 90,
     };
-    expect(
-      async () => await Organization.find({ organization: data.organization })
+    expect(await Organization.find({ organization: data.organization })
     ).not.toThrow();
   });
 });
@@ -124,8 +122,7 @@ describe("filter by market value", () => {
       country: "Nigeria",
       marketValue: 90,
     };
-    expect(
-      async () => await Organization.find({ marketValue: data.marketValue })
+    expect(await Organization.find({ marketValue: data.marketValue })
     ).not.toThrow();
   });
 });
@@ -134,7 +131,7 @@ describe("Can get all from database", () => {
    * Tests updating from db
    */
   it("can get all correctly", async () => {
-    expect(async () => await Organization.find()).not.toThrow();
+    expect(await Organization.find()).not.toThrow();
   });
 });
 

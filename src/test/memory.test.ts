@@ -38,12 +38,6 @@ beforeAll( () => connect());
 /**
  * Clear all test data after every test.
  */
-afterEach( () => clearDatabase());
-
-/**
- * Remove and close the db and server.
- */
-afterAll(() => closeDatabase());
 
 describe("POST  ", () => {
   /**
@@ -71,70 +65,77 @@ describe("filter by ID", () => {
    */
   it("can be get correctly",  async() => {
     return await expect(
-       () => Organization.findById("5f5575724c08c2f6ede2c5eb")
-    ).not.toThrow();
+      () => Organization.findById("5f5575724c08c2f6ede2c5eb")
+      ).not.toThrow();
+    });
   });
-});
-describe("delete by ID", () => {
-  /**
-   * Tests deleting from db
-   */
-  it("can be delete correctly", async() => {
-    return await expect( () => Organization.findByIdAndRemove()).not.toThrow();
+  describe("delete by ID", () => {
+    /**
+     * Tests deleting from db
+     */
+    it("can be delete correctly", async() => {
+      return await expect( () => Organization.findByIdAndRemove()).not.toThrow();
+    });
   });
-});
-describe("Update by ID", () => {
-  /**
-   * Tests updating from db
-   */
-  it("can be updates correctly", async() => {
-    return await expect(() => Organization.findByIdAndUpdate()).not.toThrow();
+  describe("Update by ID", () => {
+    /**
+     * Tests updating from db
+     */
+    it("can be updates correctly", async() => {
+      return await expect(() => Organization.findByIdAndUpdate()).not.toThrow();
+    });
   });
-});
-describe("filter by organization name ", () => {
-  /**
-   * Tests updating from db
-   */
-  it("can be filtered by organization name correctly", async() => {
-    let data = {
-      products: ["Mango", "Cashew"],
-      employees: ["Uche", "Bulus", "Joseph"],
-      noOfEmployees: 2,
-      organization: "Rggfj",
-      address: "US",
-      country: "Nigeria",
-      marketValue: 90,
-    };
-    return await expect(
-       () =>Organization.find({ organization: data.organization })
-    ).not.toThrow();
-  });
-});
-describe("filter by market value", () => {
-  /**
-   * Tests updating from db
-   */
-  it("can be filter by market value correctly", async() => {
-    let data = {
-      products: ["Mango", "Cashew"],
-      employees: ["Uche", "Bulus", "Joseph"],
-      noOfEmployees: 2,
-      organization: "Rggfj",
-      address: "US",
-      country: "Nigeria",
-      marketValue: 90,
-    };
-    return await expect(
-       () =>  Organization.find({ marketValue: data.marketValue })
-    ).not.toThrow();
-  });
-});
-describe("Can get all from database", () => {
-  /**
-   * Tests updating from db
-   */
-  it("can get all correctly", async() => {
-    return await expect(() => Organization.find()).not.toThrow();
-  });
-});
-
+  describe("filter by organization name ", () => {
+    /**
+     * Tests updating from db
+     */
+    it("can be filtered by organization name correctly", async() => {
+      let data = {
+        products: ["Mango", "Cashew"],
+        employees: ["Uche", "Bulus", "Joseph"],
+        noOfEmployees: 2,
+        organization: "Rggfj",
+        address: "US",
+        country: "Nigeria",
+        marketValue: 90,
+      };
+      return await expect(
+        () =>Organization.find({ organization: data.organization })
+        ).not.toThrow();
+      });
+    });
+    describe("filter by market value", () => {
+      /**
+       * Tests updating from db
+       */
+      it("can be filter by market value correctly", async() => {
+        let data = {
+          products: ["Mango", "Cashew"],
+          employees: ["Uche", "Bulus", "Joseph"],
+          noOfEmployees: 2,
+          organization: "Rggfj",
+          address: "US",
+          country: "Nigeria",
+          marketValue: 90,
+        };
+        return await expect(
+          () =>  Organization.find({ marketValue: data.marketValue })
+          ).not.toThrow();
+        });
+      });
+      describe("Can get all from database", () => {
+        /**
+         * Tests updating from db
+         */
+        it("can get all correctly", async() => {
+          return await expect(() => Organization.find()).not.toThrow();
+        });
+      });
+      
+      
+      afterEach( () => clearDatabase());
+      
+      /**
+       * Remove and close the db and server.
+       */
+      afterAll(() => closeDatabase());

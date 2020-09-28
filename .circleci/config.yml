@@ -47,9 +47,9 @@ jobs:
       - run:
           name: Test
           command: yarn test 
-      - run:
-          name: Generate code coverage
-          command: './node_modules/.bin/report.xml report --reporter=text-lcov'
+    #   - run:
+        #   name: Generate code coverage
+        #   command: './node_modules/.bin/report.xml report --reporter=text-lcov'
       # You can specify either a single file or a directory to store as artifacts
       - store_artifacts:
           path: test-results.xml

@@ -46,7 +46,7 @@ jobs:
           command: yarn tsc      
       - run:
           name: Test
-          command: yarn test
+          command: yarn test --detectOpenHandles
       - run:
           name: Generate code coverage
           command: './node_modules/.bin/nyc report --reporter=text-lcov'

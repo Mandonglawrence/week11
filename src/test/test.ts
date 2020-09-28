@@ -7,7 +7,7 @@ const request = supertest(app);
 
 describe("/", () => {
   it("can get correctly", (done) => {
-    request
+   return request
       .post("/graphql")
       .send({
         query: `
@@ -29,7 +29,7 @@ describe("/", () => {
 });
 describe("/", () => {
   it("can get correctly", (done) => {
-    request
+   return request
       .post("/graphql")
       .send({
         query: `
@@ -49,7 +49,7 @@ describe("/", () => {
 });
 describe("/", () => {
   it("can get correctly", (done) => {
-    request
+  return  request
       .post("/graphql")
       .send({
         query: `
@@ -77,7 +77,7 @@ describe("/", () => {
 });
 describe("/", () => {
   it("can get correctly", (done) => {
-    request
+   return request
       .post("/graphql")
       .send({
         query: `
@@ -100,7 +100,7 @@ describe("/", () => {
 });
 describe("/", () => {
   it("can get correctly", (done) => {
-    request
+   return request
       .post("/graphql")
       .send({
         query: `

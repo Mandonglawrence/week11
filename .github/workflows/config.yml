@@ -5,21 +5,45 @@ on: [push]
 jobs:
   build:
 
-    runs-on: macos-latest
-
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '12.x'
     - run: yarn
+    - run: yarn build --if-present
     - run: yarn tsc
-    - run: yarn run build --if-present
-    - run: npm test
+    - run: yarn test
       env:
         CI: true
+
+
+
+# name: Node.js CI
+
+# on: [push]
+
+# jobs:
+#   build:
+
+#     runs-on: macos-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [8.x, 10.x, 12.x]
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#     - run: yarn
+#     - run: yarn tsc
+#     - run: yarn run build --if-present
+#     - run: npm test
+#       env:
+#         CI: true

@@ -53,12 +53,13 @@ function connectToCluster() {
                 case 0: return [4 /*yield*/, mongoose_1.default.connect(/*`mongodb+srv://lawrence:lawman4u@cluster0.flvwz.mongodb.net/week9`*/ "mongodb://localhost/week9", {
                         useNewUrlParser: true,
                         useCreateIndex: true,
-                        useFindAndModify: true,
+                        useFindAndModify: false,
                         useUnifiedTopology: true,
                     }, function (err) {
                         if (!err) {
                             console.log("mongodb connected successfully");
                         }
+                        // mongoose.connection.close();
                     })];
                 case 1:
                     _a.sent();
@@ -75,5 +76,4 @@ app.use("/graphql", express_graphql_1.graphqlHTTP({
     graphiql: true
 }));
 // app.listen(5001, () => console.log("app running on port 5005"));
-// mongoose.connection.close();
 exports.default = app;

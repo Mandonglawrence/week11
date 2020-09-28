@@ -5,7 +5,8 @@ import grapqlModel from "./models/graphqlModel";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
-mongoose.connect(/*`mongodb+srv://lawrence:lawman4u@cluster0.flvwz.mongodb.net/week9`*/
+async function connectToCluster(){
+  await mongoose.connect(/*`mongodb+srv://lawrence:lawman4u@cluster0.flvwz.mongodb.net/week9`*/
   "mongodb://localhost/week9",
   {
     useNewUrlParser: true,
@@ -20,6 +21,8 @@ mongoose.connect(/*`mongodb+srv://lawrence:lawman4u@cluster0.flvwz.mongodb.net/w
   }
 )
 
+}
+connectToCluster();
 const app = express();
 app.use(morgan("dev"));
 app.use("/graphql",

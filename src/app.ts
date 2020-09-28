@@ -18,8 +18,9 @@ async function connectToCluster(){
     if (!err) {
       console.log("mongodb connected successfully")
     }
+    mongoose.connection.close();
   }
-)
+  )
 
 }
 connectToCluster();
@@ -33,5 +34,4 @@ app.use("/graphql",
     }
   ));
 // app.listen(5001, () => console.log("app running on port 5005"));
-// mongoose.connection.close();
 export default app;

@@ -1,4 +1,5 @@
 import supertest from "supertest";
+import mongoose from "mongoose";
 
 import app from "../app";
 import { Response } from "express";
@@ -118,3 +119,9 @@ describe("/", () => {
       });
   });
 });
+
+afterAll((done) => {
+  // Closing the DB connection allows Jest to exit successfully.
+  mongoose.connection.close();
+  done();
+  });

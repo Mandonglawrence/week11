@@ -33,17 +33,17 @@ const clearDatabase = async () => {
   }
 };
 
-beforeAll(async () => connect());
+beforeAll( () => connect());
 
 /**
  * Clear all test data after every test.
  */
-afterEach(async () => clearDatabase());
+afterEach( () => clearDatabase());
 
 /**
  * Remove and close the db and server.
  */
-afterAll(async () => closeDatabase());
+afterAll(() => closeDatabase());
 
 describe("POST  ", () => {
   /**
@@ -60,8 +60,8 @@ describe("POST  ", () => {
     noOfEmployees: 0,
   };
   data["noOfEmployees"] = data.employees.length;
-  it("can be created correctly", async () => {
-    expect(await Organization.create()).not.toThrow();
+  it("can be created correctly",  () => {
+    expect(async () => await Organization.create()).not.toThrow();
   });
 });
 
@@ -69,8 +69,9 @@ describe("filter by ID", () => {
   /**
    * Tests that you can find by id
    */
-  it("can be get correctly", async () => {
-    expect(await Organization.findById("5f5575724c08c2f6ede2c5eb")
+  it("can be get correctly",  () => {
+    expect(
+      async () => await Organization.findById("5f5575724c08c2f6ede2c5eb")
     ).not.toThrow();
   });
 });
@@ -78,23 +79,23 @@ describe("delete by ID", () => {
   /**
    * Tests deleting from db
    */
-  it("can be delete correctly", async () => {
-    expect(await Organization.findByIdAndRemove()).not.toThrow();
+  it("can be delete correctly", () => {
+    expect(async () => await Organization.findByIdAndRemove()).not.toThrow();
   });
 });
 describe("Update by ID", () => {
   /**
    * Tests updating from db
    */
-  it("can be updates correctly", async () => {
-    expect(await Organization.findByIdAndUpdate()).not.toThrow();
+  it("can be updates correctly", () => {
+    expect(async () => await Organization.findByIdAndUpdate()).not.toThrow();
   });
 });
 describe("filter by organization name ", () => {
   /**
    * Tests updating from db
    */
-  it("can be filtered by organization name correctly", async () => {
+  it("can be filtered by organization name correctly", () => {
     let data = {
       products: ["Mango", "Cashew"],
       employees: ["Uche", "Bulus", "Joseph"],
@@ -104,7 +105,8 @@ describe("filter by organization name ", () => {
       country: "Nigeria",
       marketValue: 90,
     };
-    expect(await Organization.find({ organization: data.organization })
+    expect(
+      async () => await Organization.find({ organization: data.organization })
     ).not.toThrow();
   });
 });
@@ -112,7 +114,7 @@ describe("filter by market value", () => {
   /**
    * Tests updating from db
    */
-  it("can be filter by market value correctly", async () => {
+  it("can be filter by market value correctly", () => {
     let data = {
       products: ["Mango", "Cashew"],
       employees: ["Uche", "Bulus", "Joseph"],
@@ -122,7 +124,8 @@ describe("filter by market value", () => {
       country: "Nigeria",
       marketValue: 90,
     };
-    expect(await Organization.find({ marketValue: data.marketValue })
+    expect(
+      async () => await Organization.find({ marketValue: data.marketValue })
     ).not.toThrow();
   });
 });
@@ -130,8 +133,8 @@ describe("Can get all from database", () => {
   /**
    * Tests updating from db
    */
-  it("can get all correctly", async () => {
-    expect(await Organization.find()).not.toThrow();
+  it("can get all correctly", () => {
+    expect(async () => await Organization.find()).not.toThrow();
   });
 });
 

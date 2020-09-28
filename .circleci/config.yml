@@ -43,10 +43,13 @@ jobs:
             mongo localhost --eval 'db.serverStatus()'
       - run:
           name: tsc
-          command: yarn tsc      
+          command: yarn tsc 
+      - run:
+          name: tracedeprecation
+          command: node --trace-deprecation    
       - run:
           name: Test
-          command: yarn test --detectOpenHandles --trace-deprecation
+          command: yarn test --detectOpenHandles 
       - run:
           name: Generate code coverage
           command: './node_modules/.bin/nyc report --reporter=text-lcov'

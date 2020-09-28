@@ -128,7 +128,7 @@ describe("filter by ID", () => {
          * Tests updating from db
          */
         it("can get all correctly", (done) => {
-          return expect(async () => await Organization.find()).not.toThrow();
+          expect(async () => await Organization.find()).not.toThrow();
           done()
         });
       });

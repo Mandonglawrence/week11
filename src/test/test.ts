@@ -47,8 +47,8 @@ describe("/", () => {
   });
 });
 describe("/", () => {
-  it("can add one correctly", (done) => {
-  return  request
+  it("can add one correctly", async(done) => {
+  return  await request
       .post("/graphql")
       .send({
         query: `

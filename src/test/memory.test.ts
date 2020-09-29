@@ -43,18 +43,7 @@ describe("POST  ", () => {
   /**
    * Tests that you can post to db.
    */
-  let data = {
-    products: ["Mango", "Cashew"],
-    employees: ["Uche", "Bulus"],
-    organization: "Rggfj",
-    address: "US",
-    ceo: "John",
-    country: "Nigeria",
-    // marketValue: 90,
-    noOfEmployees: 0,
-  };
-  data["noOfEmployees"] = data.employees.length;
-  it("can be created correctly",  async() => {
+    it("can be created correctly",  async() => {
      await expect(async() => await Organization.create()).not.toThrow();
   });
 });
@@ -90,17 +79,9 @@ describe("filter by ID", () => {
      * Tests updating from db
      */
     it("can be filtered by organization name correctly", async() => {
-      let data = {
-        products: ["Mango", "Cashew"],
-        employees: ["Uche", "Bulus", "Joseph"],
-        noOfEmployees: 2,
-        organization: "Rggfj",
-        address: "US",
-        country: "Nigeria",
-        marketValue: 90,
-      };
+      
         expect(
-        async() => await Organization.find({ organization: data.organization })
+        async() => await Organization.find({ organization:"organization" })
         ).not.toThrow();
       });
     });
@@ -109,17 +90,8 @@ describe("filter by ID", () => {
        * Tests updating from db
        */
       it("can be filter by market value correctly", async() => {
-        let data = {
-          products: ["Mango", "Cashew"],
-          employees: ["Uche", "Bulus", "Joseph"],
-          noOfEmployees: 2,
-          organization: "Rggfj",
-          address: "US",
-          country: "Nigeria",
-          marketValue: 90,
-        };
           expect(
-          async() =>  await Organization.find({ marketValue: data.marketValue })
+          async() =>  await Organization.find({ marketValue: "marketValue" })
           ).not.toThrow();
         });
       });

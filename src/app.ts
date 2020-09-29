@@ -6,8 +6,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 async function connectToCluster(){
-  await mongoose.connect(`mongodb+srv://lawrence:lawman4u@cluster0.flvwz.mongodb.net/week9`
-  /*"mongodb://localhost/week9"*/,
+  await mongoose.connect(/*`mongodb+srv://lawrence:lawman4u@cluster0.flvwz.mongodb.net/week9`*/
+  "mongodb://localhost/week9",
   {
     useNewUrlParser: true,
     useCreateIndex: true,

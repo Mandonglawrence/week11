@@ -23,7 +23,7 @@ async function connectToCluster(){
   )
 
 }
-connectToCluster();
+// connectToCluster();
 const app = express();
 app.use(morgan("dev"));
 app.use("/graphql",

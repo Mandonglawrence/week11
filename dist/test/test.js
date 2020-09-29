@@ -44,7 +44,7 @@ var mongoose_1 = __importDefault(require("mongoose"));
 var app_1 = __importDefault(require("../app"));
 var request = supertest_1.default(app_1.default);
 describe("/", function () {
-    it("can get correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+    it("can get one correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, request
@@ -70,7 +70,7 @@ describe("/", function () {
     }); });
 });
 describe("/", function () {
-    it("can get correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+    it("can get all correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, request
@@ -89,7 +89,7 @@ describe("/", function () {
     }); });
 });
 describe("/", function () {
-    it("can get correctly", function (done) {
+    it("can add one correctly", function (done) {
         return request
             .post("/graphql")
             .send({

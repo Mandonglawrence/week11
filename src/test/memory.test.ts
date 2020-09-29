@@ -5,7 +5,8 @@ import mongoose from "mongoose";
 const mongod = new MongoMemoryServer();
 // dotenv.config();
 const connect = async () => {
-  const uri = "mongodb://localhost/myTests";
+  const uri = "mongodb+srv://lawrence:lawman4u@cluster0.flvwz.mongodb.net/week9";
+  // const uri = "mongodb://localhost/myTests";
   // const uri =process.env.DATABASE_URI;
 
   const mongooseOpts = {

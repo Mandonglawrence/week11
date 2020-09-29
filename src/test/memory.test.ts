@@ -33,7 +33,7 @@ const clearDatabase = async () => {
   }
 };
 
-beforeAll( () => connect());
+beforeAll( async() => await connect());
 
 /**
  * Clear all test data after every test.
@@ -55,7 +55,7 @@ describe("POST  ", () => {
   };
   data["noOfEmployees"] = data.employees.length;
   it("can be created correctly",  async() => {
-    return await expect(() => Organization.create()).not.toThrow();
+     await expect(async() => await Organization.create()).not.toThrow();
   });
 });
 
@@ -64,8 +64,8 @@ describe("filter by ID", () => {
    * Tests that you can find by id
    */
   it("can be get correctly",  async() => {
-    return await expect(
-      () => Organization.findById("5f5575724c08c2f6ede2c5eb")
+     await expect(
+      async() => await Organization.findById("5f5575724c08c2f6ede2c5eb")
       ).not.toThrow();
     });
   });
@@ -74,7 +74,7 @@ describe("filter by ID", () => {
      * Tests deleting from db
      */
     it("can be delete correctly", async() => {
-      return await expect( () => Organization.findByIdAndRemove()).not.toThrow();
+       await expect( async() =>await Organization.findByIdAndRemove()).not.toThrow();
     });
   });
   describe("Update by ID", () => {
@@ -82,7 +82,7 @@ describe("filter by ID", () => {
      * Tests updating from db
      */
     it("can be updates correctly", async() => {
-      return await expect(() => Organization.findByIdAndUpdate()).not.toThrow();
+       expect(async() => await Organization.findByIdAndUpdate()).not.toThrow();
     });
   });
   describe("filter by organization name ", () => {
@@ -99,8 +99,8 @@ describe("filter by ID", () => {
         country: "Nigeria",
         marketValue: 90,
       };
-      return await expect(
-        () =>Organization.find({ organization: data.organization })
+        expect(
+        async() => await Organization.find({ organization: data.organization })
         ).not.toThrow();
       });
     });
@@ -118,8 +118,8 @@ describe("filter by ID", () => {
           country: "Nigeria",
           marketValue: 90,
         };
-        return await expect(
-          () =>  Organization.find({ marketValue: data.marketValue })
+          expect(
+          async() =>  await Organization.find({ marketValue: data.marketValue })
           ).not.toThrow();
         });
       });

@@ -64,122 +64,115 @@ describe("/", function () {
         });
     }); });
 });
-// describe("/", () => {
-//    it("can get nownow", async(done) => {
-//      try {
-//       const res = await request
-//       .post("/graphql")
-//       .send({
-//         query: `
-//       query{
-//         getAllOrganization{
-//           employees
-//         }
-//       }  
-//       `,
-//       }).expect(200)
-//    } catch (err) {
-//      console.log(err.message)
-//    }
-//   });
-// });
-// describe("/", () => {
-//   it("can get correctly", async (done) => {
-//  await request
-//     .post("/graphql")
-//     .send({
-//       query: `
-//     query{
-//       getAllOrganization{
-//         employees
-//       }
-//     }  
-//     `,
-//     })
-//       .then((res) => {
-//         console.log(res.text);
-//         expect(res.status).toBe(200);
-//         done();
-//       }).catch(eer=>{console.log(eer);
-//       });
-//   });
-// });
-// describe("/", () => {
-//   it("can get correctly", async(done) => {
-//   await request
-//       .post("/graphql")
-//       .send({
-//         query: `
-//       mutation{
-//         addOrganization(
-//         organization: "GOOOddddd"
-//          products: ["garri"]
-//          marketValue: 8
-//          address: "Asnjo"
-//         ceo: "Oyinkan"
-//         country: "India"
-//         employees: ["Stalion"]
-//         ){
-//           country
-//         }
-//       }  
-//       `,
-//       })
-//       .then((res) => {
-//         console.log(res.text);
-//         expect(res.status).toBe(200);
-//         done();
-//       }).catch(err=>{console.log(err);
-//       });
-//   });
-// });
-// describe("/", () => {
-//   it("can get correctly", async(done) => {
-//    await request
-//       .post("/graphql")
-//       .send({
-//         query: `
-//       mutation{
-//         updateOrganization(
-//           id:"5f60cdc576fd80bb110af5a3",
-//           country:"Plateau",
-//           ){
-//           country
-//         }
-//       }  
-//       `,
-//       })
-//       .then((res) => {
-//          console.log(res.text);
-//         expect(res.status).toBe(200);
-//         done();
-//       }).catch(er=>{
-//         console.log(er);
-//       });
-//   });
-// });
-// describe("/", () => {
-//   it("can delete correctly", async(done) => {
-//    await request
-//       .post("/graphql")
-//       .send({
-//         query: `
-//       mutation{
-//         deleteOrganization(id:"5f60cdc576fd80bb110af5a3"){
-//           country
-//         }
-//       }  
-//       `,
-//       })
-//       .then((res) => {
-//         console.log(res.text);
-//         expect(res.status).toBe(200);
-//         done();
-//       }).catch(er => {
-//         console.log(er);
-//       });
-//   });
-// });
+// // describe("/", () => {
+// //    it("can get nownow", async(done) => {
+// //      try {
+// //       const res = await request
+// //       .post("/graphql")
+// //       .send({
+// //         query: `
+// //       query{
+// //         getAllOrganization{
+// //           employees
+// //         }
+// //       }  
+// //       `,
+// //       }).expect(200)
+// //    } catch (err) {
+// //      console.log(err.message)
+// //    }
+// //   });
+// // });
+// // describe("/", () => {
+// //   it("can get correctly", async (done) => {
+//   //  await request
+//   //     .post("/graphql")
+//   //     .send({
+//   //       query: `
+//   //     query{
+//   //       getAllOrganization{
+//   //         employees
+//   //       }
+//   //     }  
+//   //     `,
+//   //     })
+// //       .then((res) => {
+// //         console.log(res.text);
+// //         expect(res.status).toBe(200);
+// //         done();
+// //       }).catch(eer=>{console.log(eer);
+// //       });
+// //   });
+// // });
+describe("/", function () {
+    it("can get correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request
+                        .post("/graphql")
+                        .send({
+                        query: "\n      mutation{\n        addOrganization(\n        organization: \"GOOOddddd\"\n         products: [\"garri\"]\n         marketValue: 8\n         address: \"Asnjo\"\n        ceo: \"Oyinkan\"\n        country: \"India\"\n        employees: [\"Stalion\"]\n        ){\n          country\n        }\n      }  \n      ",
+                    })
+                        .then(function (res) {
+                        console.log(res.text);
+                        expect(res.status).toBe(200);
+                        done();
+                    }).catch(function (err) {
+                        console.log(err);
+                    })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
+describe("/", function () {
+    it("can get correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request
+                        .post("/graphql")
+                        .send({
+                        query: "\n      mutation{\n        updateOrganization(\n          id:\"5f60cdc576fd80bb110af5a3\",\n          country:\"Plateau\",\n          ){\n          country\n        }\n      }  \n      ",
+                    })
+                        .then(function (res) {
+                        console.log(res.text);
+                        expect(res.status).toBe(200);
+                        done();
+                    }).catch(function (er) {
+                        console.log(er);
+                    })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
+describe("/", function () {
+    it("can delete correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request
+                        .post("/graphql")
+                        .send({
+                        query: "\n      mutation{\n        deleteOrganization(id:\"5f60cdc576fd80bb110af5a3\"){\n          country\n        }\n      }  \n      ",
+                    })
+                        .then(function (res) {
+                        console.log(res.text);
+                        expect(res.status).toBe(200);
+                        done();
+                    }).catch(function (er) {
+                        console.log(er);
+                    })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
 afterAll(function (done) {
     // Closing the DB connection allows Jest to exit successfully.
     mongoose_1.default.connection.close();

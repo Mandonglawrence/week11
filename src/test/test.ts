@@ -6,8 +6,8 @@ import { Response } from "express";
 
 const request = supertest(app);
 
-describe("/", async() => {
-  await it("can get correctly", async(done) => {
+describe("/", () => {
+   it("can get correctly", async(done) => {
    await request
       .post("/graphql")
       .send({
@@ -45,6 +45,7 @@ describe("/", () => {
         console.log(res.text);
         expect(res.status).toBe(200);
         done();
+      }).catch(eer=>{console.log(eer);
       });
   });
 });
@@ -73,6 +74,7 @@ describe("/", () => {
         console.log(res.text);
         expect(res.status).toBe(200);
         done();
+      }).catch(err=>{console.log(err);
       });
   });
 });
@@ -96,11 +98,14 @@ describe("/", () => {
         console.log(res.text);
         expect(res.status).toBe(200);
         done();
+      }).catch(er=>{
+        console.log(er);
+        
       });
   });
 });
 describe("/", () => {
-  it("can get correctly", async(done) => {
+  it("can delete correctly", async(done) => {
    await request
       .post("/graphql")
       .send({
@@ -116,6 +121,9 @@ describe("/", () => {
         console.log(res.text);
         expect(res.status).toBe(200);
         done();
+      }).catch(er => {
+        console.log(er);
+        
       });
   });
 });

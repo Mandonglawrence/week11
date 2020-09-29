@@ -105,35 +105,31 @@ var clearDatabase = function () { return __awaiter(void 0, void 0, void 0, funct
         }
     });
 }); };
-beforeAll(function () { return connect(); });
+beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    switch (_a.label) {
+        case 0: return [4 /*yield*/, connect()];
+        case 1: return [2 /*return*/, _a.sent()];
+    }
+}); }); });
 /**
  * Clear all test data after every test.
  */
-afterEach(function () { return clearDatabase(); });
-/**
- * Remove and close the db and server.
- */
-afterAll(function () { return closeDatabase(); });
 describe("POST  ", function () {
     /**
      * Tests that you can post to db.
      */
-    var data = {
-        products: ["Mango", "Cashew"],
-        employees: ["Uche", "Bulus"],
-        organization: "Rggfj",
-        address: "US",
-        ceo: "John",
-        country: "Nigeria",
-        // marketValue: 90,
-        noOfEmployees: 0,
-    };
-    data["noOfEmployees"] = data.employees.length;
     it("can be created correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.create(); }).not.toThrow()];
-                case 1: return [2 /*return*/, _a.sent()];
+                case 0: return [4 /*yield*/, expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, organizationSchema_1.default.create()];
+                            case 1: return [2 /*return*/, _a.sent()];
+                        }
+                    }); }); }).not.toThrow()];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
             }
         });
     }); });
@@ -145,8 +141,15 @@ describe("filter by ID", function () {
     it("can be get correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.findById("5f5575724c08c2f6ede2c5eb"); }).not.toThrow()];
-                case 1: return [2 /*return*/, _a.sent()];
+                case 0: return [4 /*yield*/, expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, organizationSchema_1.default.findById("5f5575724c08c2f6ede2c5eb")];
+                            case 1: return [2 /*return*/, _a.sent()];
+                        }
+                    }); }); }).not.toThrow()];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
             }
         });
     }); });
@@ -158,8 +161,15 @@ describe("delete by ID", function () {
     it("can be delete correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.findByIdAndRemove(); }).not.toThrow()];
-                case 1: return [2 /*return*/, _a.sent()];
+                case 0: return [4 /*yield*/, expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, organizationSchema_1.default.findByIdAndRemove()];
+                            case 1: return [2 /*return*/, _a.sent()];
+                        }
+                    }); }); }).not.toThrow()];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
             }
         });
     }); });
@@ -170,10 +180,13 @@ describe("Update by ID", function () {
      */
     it("can be updates correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.findByIdAndUpdate(); }).not.toThrow()];
-                case 1: return [2 /*return*/, _a.sent()];
-            }
+            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, organizationSchema_1.default.findByIdAndUpdate()];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            }); }); }).not.toThrow();
+            return [2 /*return*/];
         });
     }); });
 });
@@ -182,22 +195,14 @@ describe("filter by organization name ", function () {
      * Tests updating from db
      */
     it("can be filtered by organization name correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var data;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    data = {
-                        products: ["Mango", "Cashew"],
-                        employees: ["Uche", "Bulus", "Joseph"],
-                        noOfEmployees: 2,
-                        organization: "Rggfj",
-                        address: "US",
-                        country: "Nigeria",
-                        marketValue: 90,
-                    };
-                    return [4 /*yield*/, expect(function () { return organizationSchema_1.default.find({ organization: data.organization }); }).not.toThrow()];
-                case 1: return [2 /*return*/, _a.sent()];
-            }
+            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, organizationSchema_1.default.find({ organization: "organization" })];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            }); }); }).not.toThrow();
+            return [2 /*return*/];
         });
     }); });
 });
@@ -208,20 +213,22 @@ describe("filter by market value", function () {
     it("can be filter by market value correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    data = {
-                        products: ["Mango", "Cashew"],
-                        employees: ["Uche", "Bulus", "Joseph"],
-                        noOfEmployees: 2,
-                        organization: "Rggfj",
-                        address: "US",
-                        country: "Nigeria",
-                        marketValue: 90,
-                    };
-                    return [4 /*yield*/, expect(function () { return organizationSchema_1.default.find({ marketValue: data.marketValue }); }).not.toThrow()];
-                case 1: return [2 /*return*/, _a.sent()];
-            }
+            data = {
+                products: ["Mango", "Cashew"],
+                employees: ["Uche", "Bulus", "Joseph"],
+                noOfEmployees: 2,
+                organization: "Rggfj",
+                address: "US",
+                country: "Nigeria",
+                marketValue: 90,
+            };
+            expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, organizationSchema_1.default.find({ marketValue: data.marketValue })];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            }); }); }).not.toThrow();
+            return [2 /*return*/];
         });
     }); });
 });
@@ -229,12 +236,18 @@ describe("Can get all from database", function () {
     /**
      * Tests updating from db
      */
-    it("can get all correctly", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
+    it("can get all correctly", function (done) {
+        expect(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, expect(function () { return organizationSchema_1.default.find(); }).not.toThrow()];
+                case 0: return [4 /*yield*/, organizationSchema_1.default.find()];
                 case 1: return [2 /*return*/, _a.sent()];
             }
-        });
-    }); });
+        }); }); }).not.toThrow();
+        done();
+    });
 });
+afterEach(function () { return clearDatabase(); });
+/**
+ * Remove and close the db and server.
+ */
+afterAll(function () { return closeDatabase(); });

@@ -90,8 +90,17 @@ describe("filter by ID", () => {
        * Tests updating from db
        */
       it("can be filter by market value correctly", async() => {
+        let data = {
+          products: ["Mango", "Cashew"],
+          employees: ["Uche", "Bulus", "Joseph"],
+          noOfEmployees: 2,
+          organization: "Rggfj",
+          address: "US",
+          country: "Nigeria",
+          marketValue: 90,
+        };
           expect(
-          async() =>  await Organization.find({ marketValue: "marketValue" })
+          async() =>  await Organization.find({ marketValue: data.marketValue })
           ).not.toThrow();
         });
       });

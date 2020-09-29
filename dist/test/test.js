@@ -92,49 +92,42 @@ describe("/", function () {
         });
     });
 });
-// describe("/", () => {
-//   it("can get correctly", (done) => {
-//    return request
-//       .post("/graphql")
-//       .send({
-//         query: `
-//       mutation{
-//         updateOrganization(
-//           id:"5f60cdc576fd80bb110af5a3",
-//           country:"Plateau",
-//           ){
-//           country
-//         }
-//       }  
-//       `,
-//       })
-//       .then((res) => {
-//         console.log(res.text);
-//         expect(res.status).toBe(200);
-//         done();
-//       });
-//   });
-// });
-// describe("/", () => {
-//   it("can get correctly", (done) => {
-//    return request
-//       .post("/graphql")
-//       .send({
-//         query: `
-//       mutation{
-//         deleteOrganization(id:"5f60cdc576fd80bb110af5a3"){
-//           country
-//         }
-//       }  
-//       `,
-//       })
-//       .then((res) => {
-//         console.log(res.text);
-//         expect(res.status).toBe(200);
-//         done();
-//       });
-//   });
-// });
+describe("/", function () {
+    it("can get correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request
+                        .post("/graphql")
+                        .send({
+                        query: "\n      mutation{\n        updateOrganization(\n          id:\"5f60cdc576fd80bb110af5a3\",\n          country:\"Plateau\",\n          ){\n          country\n        }\n      }  \n      ",
+                    })
+                        .then(function (res) {
+                        expect(res.status).toBe(200);
+                        done();
+                    })];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        });
+    }); });
+});
+describe("/", function () {
+    it("can get correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request
+                        .post("/graphql")
+                        .send({
+                        query: "\n      mutation{\n        deleteOrganization(id:\"5f60cdc576fd80bb110af5a3\"){\n          country\n        }\n      }  \n      ",
+                    })
+                        .then(function (res) {
+                        expect(res.status).toBe(200);
+                        done();
+                    })];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        });
+    }); });
+});
 afterAll(function (done) {
     // Closing the DB connection allows Jest to exit successfully.
     mongoose_1.default.connection.close();

@@ -73,49 +73,47 @@ describe("/", () => {
       });
   });
 });
-// describe("/", () => {
-//   it("can get correctly", (done) => {
-//    return request
-//       .post("/graphql")
-//       .send({
-//         query: `
-//       mutation{
-//         updateOrganization(
-//           id:"5f60cdc576fd80bb110af5a3",
-//           country:"Plateau",
-//           ){
-//           country
-//         }
-//       }  
-//       `,
-//       })
-//       .then((res) => {
-//         console.log(res.text);
-//         expect(res.status).toBe(200);
-//         done();
-//       });
-//   });
-// });
-// describe("/", () => {
-//   it("can get correctly", (done) => {
-//    return request
-//       .post("/graphql")
-//       .send({
-//         query: `
-//       mutation{
-//         deleteOrganization(id:"5f60cdc576fd80bb110af5a3"){
-//           country
-//         }
-//       }  
-//       `,
-//       })
-//       .then((res) => {
-//         console.log(res.text);
-//         expect(res.status).toBe(200);
-//         done();
-//       });
-//   });
-// });
+describe("/", () => {
+  it("can get correctly", async(done) => {
+   return await request
+      .post("/graphql")
+      .send({
+        query: `
+      mutation{
+        updateOrganization(
+          id:"5f60cdc576fd80bb110af5a3",
+          country:"Plateau",
+          ){
+          country
+        }
+      }  
+      `,
+      })
+      .then((res) => {
+        expect(res.status).toBe(200);
+        done();
+      });
+  });
+});
+describe("/", () => {
+  it("can get correctly", async(done) => {
+   return await request
+      .post("/graphql")
+      .send({
+        query: `
+      mutation{
+        deleteOrganization(id:"5f60cdc576fd80bb110af5a3"){
+          country
+        }
+      }  
+      `,
+      })
+      .then((res) => {
+        expect(res.status).toBe(200);
+        done();
+      });
+  });
+});
 
 afterAll((done) => {
   // Closing the DB connection allows Jest to exit successfully.

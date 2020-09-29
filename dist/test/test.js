@@ -52,18 +52,10 @@ describe("/", function () {
                         .send({
                         query: "\n      query{\n        getOneOrganization(id:\"5f60cdc576fd80bb110af5a3\"){\n          organization,\n          employees,\n          noOfEmployees,\n        }\n      }  \n      ",
                     })
-                        .then(function (res) { return __awaiter(void 0, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4 /*yield*/, console.log(res.text)];
-                                case 1:
-                                    _a.sent();
-                                    expect(res.status).toBe(200);
-                                    done();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); })];
+                        .then(function (res) {
+                        expect(res.status).toBe(200);
+                        done();
+                    })];
                 case 1: return [2 /*return*/, _a.sent()];
             }
         });
@@ -79,7 +71,6 @@ describe("/", function () {
                         query: "\n      query{\n        getAllOrganization{\n          employees\n        }\n      }  \n      ",
                     })
                         .then(function (res) {
-                        //  console.log(res.text);
                         expect(res.status).toBe(200);
                         done();
                     })];
@@ -96,7 +87,6 @@ describe("/", function () {
             query: "\n      mutation{\n        addOrganization(\n        organization: \"GOOOddddd\"\n         products: [\"garri\"]\n         marketValue: 8\n         address: \"Asnjo\"\n        ceo: \"Oyinkan\"\n        country: \"India\"\n        employees: [\"Stalion\"]\n        ){\n          country\n        }\n      }  \n      ",
         })
             .then(function (res) {
-            //  console.log(res.text);
             expect(res.status).toBe(200);
             done();
         });

@@ -98,7 +98,7 @@ describe("/", function () {
     }); });
 });
 describe("/", function () {
-    it("can get correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+    it("can update correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, request
@@ -116,7 +116,7 @@ describe("/", function () {
     }); });
 });
 describe("/", function () {
-    it("can get correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+    it("can delete correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, request

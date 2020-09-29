@@ -15,6 +15,7 @@ jobs:
         node-version: '12'
     - run: yarn
     # - run: yarn build --if-present
+    - run: yarn ci
     - run: yarn tsc
     - run: yarn test
       env:

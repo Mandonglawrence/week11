@@ -7,8 +7,8 @@ import { Response } from "express";
 const request = supertest(app);
 
 describe("/", () => {
-  it("can get correctly", (done) => {
-   return request
+  it("can get correctly", async(done) => {
+   return await request
       .post("/graphql")
       .send({
         query: `
@@ -29,8 +29,8 @@ describe("/", () => {
   });
 });
 describe("/", () => {
-  it("can get correctly", (done) => {
-   return request
+  it("can get correctly", async(done) => {
+   return await request
       .post("/graphql")
       .send({
         query: `

@@ -40,7 +40,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "test": "jest --runInBand ./test",
+    "test": "jest ./test",
     "start": "yarn nodemon ./dist/app.js",
     "tsc": "tsc"
   }

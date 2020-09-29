@@ -74,7 +74,7 @@ describe("/", () => {
   });
 });
 describe("/", () => {
-  it("can get correctly", async(done) => {
+  it("can update correctly", async(done) => {
    return await request
       .post("/graphql")
       .send({
@@ -96,7 +96,7 @@ describe("/", () => {
   });
 });
 describe("/", () => {
-  it("can get correctly", async(done) => {
+  it("can delete correctly", async(done) => {
    return await request
       .post("/graphql")
       .send({

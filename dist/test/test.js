@@ -80,17 +80,22 @@ describe("/", function () {
     }); });
 });
 describe("/", function () {
-    it("can add one correctly", function (done) {
-        return request
-            .post("/graphql")
-            .send({
-            query: "\n      mutation{\n        addOrganization(\n        organization: \"GOOOddddd\"\n         products: [\"garri\"]\n         marketValue: 8\n         address: \"Asnjo\"\n        ceo: \"Oyinkan\"\n        country: \"India\"\n        employees: [\"Stalion\"]\n        ){\n          country\n        }\n      }  \n      ",
-        })
-            .then(function (res) {
-            expect(res.status).toBe(200);
-            done();
+    it("can add one correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request
+                        .post("/graphql")
+                        .send({
+                        query: "\n      mutation{\n        addOrganization(\n        organization: \"GOOOddddd\"\n         products: [\"garri\"]\n         marketValue: 8\n         address: \"Asnjo\"\n        ceo: \"Oyinkan\"\n        country: \"India\"\n        employees: [\"Stalion\"]\n        ){\n          country\n        }\n      }  \n      ",
+                    })
+                        .then(function (res) {
+                        expect(res.status).toBe(200);
+                        done();
+                    })];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
         });
-    });
+    }); });
 });
 describe("/", function () {
     it("can get correctly", function (done) { return __awaiter(void 0, void 0, void 0, function () {

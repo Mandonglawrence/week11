@@ -10,17 +10,13 @@ jobs:
     - image:
             node:12
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12'
-    - run: yarn
-    # - run: yarn build --if-present
-    - run: yarn tsc
-    - run: yarn test --detectOpenHandles
-      env:
-        CI: true
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+          run: yarn
 
 
 

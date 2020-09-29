@@ -7,7 +7,7 @@ import { Response } from "express";
 const request = supertest(app);
 
 describe("/", () => {
-  it("can get correctly", async(done) => {
+  it("can get one correctly", async(done) => {
    return await request
       .post("/graphql")
       .send({
@@ -29,7 +29,7 @@ describe("/", () => {
   });
 });
 describe("/", () => {
-  it("can get correctly", async(done) => {
+  it("can get all correctly", async(done) => {
    return await request
       .post("/graphql")
       .send({
@@ -49,7 +49,7 @@ describe("/", () => {
   });
 });
 describe("/", () => {
-  it("can get correctly", (done) => {
+  it("can add one correctly", (done) => {
   return  request
       .post("/graphql")
       .send({

@@ -63,22 +63,15 @@ var connect = function () { return __awaiter(void 0, void 0, void 0, function ()
         }
     });
 }); };
-var closeDatabase = function () { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, mongoose_1.default.connection.dropDatabase()];
-            case 1:
-                _a.sent();
-                return [4 /*yield*/, mongoose_1.default.connection.close()];
-            case 2:
-                _a.sent();
-                return [4 /*yield*/, mongod.stop()];
-            case 3:
-                _a.sent();
-                return [2 /*return*/];
-        }
-    });
-}); };
+var closeDatabase = function () {
+    try {
+        mongoose_1.default.connection.dropDatabase();
+        mongoose_1.default.connection.close();
+        mongod.stop();
+    }
+    catch (error) {
+    }
+};
 var clearDatabase = function () { return __awaiter(void 0, void 0, void 0, function () {
     var collections, _a, _b, _i, key, collection;
     return __generator(this, function (_c) {
@@ -113,7 +106,11 @@ beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () { r
 }); }); });
 /**
  * Clear all test data after every test.
+ */ afterEach(function () { return clearDatabase(); });
+/**
+ * Remove and close the db and server.
  */
+afterAll(function () { return closeDatabase(); });
 describe("POST  ", function () {
     /**
      * Tests that you can post to db.
@@ -246,8 +243,3 @@ describe("Can get all from database", function () {
         done();
     });
 });
-afterEach(function () { return clearDatabase(); });
-/**
- * Remove and close the db and server.
- */
-afterAll(function () { return closeDatabase(); });

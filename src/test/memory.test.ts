@@ -18,10 +18,15 @@ const connect = async () => {
   await mongoose.connect(uri, mongooseOpts);
 };
 
-const closeDatabase = async () => {
-  await mongoose.connection.dropDatabase();
-  await mongoose.connection.close();
-  await mongod.stop();
+const closeDatabase = () => {
+  try {
+    
+    mongoose.connection.dropDatabase();
+    mongoose.connection.close();
+    mongod.stop();
+  } catch (error) {
+    
+  }
 };
 
 const clearDatabase = async () => {
@@ -37,7 +42,12 @@ beforeAll( async() => await connect());
 
 /**
  * Clear all test data after every test.
- */
+ */afterEach( () => clearDatabase());
+      
+      /**
+       * Remove and close the db and server.
+       */
+      afterAll(() => closeDatabase());
 
 describe("POST  ", () => {
   /**
@@ -113,11 +123,3 @@ describe("filter by ID", () => {
           done()
         });
       });
-      
-      
-      afterEach( () => clearDatabase());
-      
-      /**
-       * Remove and close the db and server.
-       */
-      afterAll(() => closeDatabase());

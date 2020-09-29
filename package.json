@@ -40,7 +40,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest  --detectOpenHandles --testEnvironment=node --verbose --forceExit  --maxWorkers=1",
     "start": "yarn nodemon ./dist/app.js",
     "tsc": "tsc"
   }

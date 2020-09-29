@@ -41,8 +41,8 @@ describe("/", () => {
       }  
       `,
       })
-      .then(async(res) => {
-        await console.log(res.text);
+      .then((res) => {
+        //  console.log(res.text);
         expect(res.status).toBe(200);
         done();
       });
@@ -69,8 +69,8 @@ describe("/", () => {
       }  
       `,
       })
-      .then(async(res) => {
-        await console.log(res.text);
+      .then((res) => {
+        //  console.log(res.text);
         expect(res.status).toBe(200);
         done();
       });

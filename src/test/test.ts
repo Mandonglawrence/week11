@@ -42,7 +42,7 @@ describe("/", () => {
       `,
       })
       .then((res) => {
-        console.log(res.text);
+        // console.log(res.text);
         expect(res.status).toBe(200);
         done();
       });
@@ -70,7 +70,7 @@ describe("/", () => {
       `,
       })
       .then((res) => {
-        console.log(res.text);
+        // console.log(res.text);
         expect(res.status).toBe(200);
         done();
       });

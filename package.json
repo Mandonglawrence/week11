@@ -40,7 +40,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "test": "jest ./test",
+    "test": "jest --runInBand --detectOpenHandles NODE_ENV ./test",
     "start": "yarn nodemon ./dist/app.js",
     "tsc": "tsc"
   }

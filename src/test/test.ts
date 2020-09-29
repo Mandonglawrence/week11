@@ -6,6 +6,9 @@ import { Response } from "express";
 
 const request = supertest(app);
 
+beforeEach(() => {
+  jest.setTimeout(10000);
+});
 describe("/", () => {
    it("can get correctly", async(done) => {
    await request
@@ -149,8 +152,8 @@ describe("/", () => {
   });
 });
 
-afterAll((done) => {
-  // Closing the DB connection allows Jest to exit successfully.
-  mongoose.connection.close();
-  done();
-  });
+// afterAll((done) => {
+//   // Closing the DB connection allows Jest to exit successfully.
+//   mongoose.connection.close();
+//   done();
+//   });
